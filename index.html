@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Escape Room: La Lavadora Misteriosa</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Añadir estilo para el enlace de la tienda */
+    #enigma1 a {
+      font-size: 1.2rem;
+      color: #fff;
+      background-color: #1e90ff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    #enigma1 a:hover {
+      background-color: #4169e1;
+    }
+  </style>
+</head>
+<body>
+  <div id="progress-bar-container"><div id="progress-bar"></div></div>
+
+  <div id="game-container">
+    <!-- Introducción -->
+    <section id="intro-screen" class="screen active">
+      <img src="assets/lavadoravieja.jpg" alt="Lavadora vieja" class="intro-image" />
+      <h1>¡Bienvenidos al Escape Room!</h1>
+      <p>Calcetines volando, tus vaqueros nadando por el suelo, un charco tremendo por el suelo....<br />
+         Tu lavadora ha explotado. Hay que comprar otra.<br />
+         Embárcate en la maravillosa aventura de la búsqueda del electrodoméstico imprescindible.
+      </p>
+      <button id="start-button">COMENZAR</button>
+    </section>
+
+    <!-- Enigma 1 -->
+    <section id="enigma1" class="screen">
+      <h2>Cuidado dónde compras</h2>
+      <p>Estás buscando una lavadora nueva y encuentras una oferta increíble en una página web. Pero, ¡cuidado con las estafas! Has llegado a esta página por sus atractivos precios:</p>
+      <a href="https://punisherock.github.io/Lavatron/" target="_blank">Visitar MEDIAMIERK</a>
+      <div class="input-group">
+        <label for="price1">¿Cuál es el precio real de la Lavatrón Deluxe?</label>
+        <input type="number" id="price1" />
+        <button id="check1">Verificar Respuesta</button>
+        <p id="feedback1" class="feedback"></p>
+      </div>
+      <div id="next1" class="next-step hidden">
+        <p>¡Correcto! La clave para la siguiente prueba es: <strong>123</strong></p>
+        <button id="to-enigma2">Siguiente Enigma</button>
+      </div>
+    </section>
+
+    <!-- Enigma 2 -->
+    <section id="enigma2" class="screen">
+      <h2>Mejor con descuento</h2>
+      <p>Has encontrado una oferta en la tienda CURRADAMARKET. Introduce el precio final de la lavadora:</p>
+      <div class="input-group">
+        <input type="number" id="price2" />
+        <button id="check2">Verificar Respuesta</button>
+        <p id="feedback2" class="feedback"></p>
+      </div>
+      <div id="next2" class="next-step hidden">
+        <button id="to-enigma3">Siguiente Enigma</button>
+      </div>
+    </section>
+
+    <!-- Enigma 3 -->
+    <section id="enigma3" class="screen">
+      <h2>Economía familiar</h2>
+      <p>Este mes habéis tenido unos ingresos brutos de 1800€. Descontad 12% de IRPF. Luego:</p>
+      <ul>
+        <li>50% para el alquiler</li>
+        <li>30% para comida</li>
+        <li>6% para transporte</li>
+      </ul>
+      <p>¿Cuánto dinero os queda para la lavadora?</p>
+      <div class="input-group">
+        <input type="number" id="remaining" />
+        <button id="check3">Verificar Respuesta</button>
+        <p id="feedback3" class="feedback"></p>
+      </div>
+      <div id="next3" class="next-step hidden">
+        <p>¡Clave del próximo enigma: <strong>4,5,6</strong></p>
+        <button id="to-enigma4">Siguiente Enigma</button>
+      </div>
+    </section>
+
+    <!-- Enigma 4 -->
+    <section id="enigma4" class="screen">
+      <h2>Financiación del producto</h2>
+      <div id="question1">
+        <p>¿Qué opción de financiación saldrá más barata en cómputo global?</p>
+        <button class="option" data-answer="1">Opción 1</button>
+        <button class="option" data-answer="2">Opción 2</button>
+        <p id="feedback4-1" class="feedback"></p>
+      </div>
+      <div id="question2" class="hidden">
+        <p>¿Cuál sería la mensualidad de la opción más ventajosa?</p>
+        <input type="number" id="monthly" />
+        <button id="check4-2">Verificar Respuesta</button>
+        <p id="feedback4-2" class="feedback"></p>
+      </div>
+      <div id="question3" class="hidden">
+        <p>¿Cuánto pagarás de más si eliges pagar menos mensualmente?</p>
+        <input type="number" id="extra" />
+        <button id="check4-3">Verificar Respuesta</button>
+        <p id="feedback4-3" class="feedback"></p>
+      </div>
+      <div id="final-step" class="next-step hidden">
+        <p>🎉 ¡Enhorabuena! Has completado todos los enigmas.</p>
+        <p>La clave final es: <strong>1234</strong></p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Sonidos -->
+  <audio id="correct-sound" src="assets/correct.mp3" preload="auto"></audio>
+  <audio id="error-sound" src="assets/error.mp3" preload="auto"></audio>
+  
+  <script src="script.js"></script>
+</body>
+</html>
